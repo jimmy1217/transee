@@ -8,13 +8,15 @@ import {
   setFromActive,
   setToBar,
   setFromBar,
-  setToActive } from '../redux/actions'
+  setToActive
+} from '../redux/actions'
 import {
   searchTranslation,
   getFromPosition,
   getToPosition,
   invertLanguages,
-  saveSettings } from './services'
+  saveSettings
+} from './services'
 import './css/languages-bar.css'
 
 const mapStateToProps = ({ langs, dropdown, fromBar, fromActive, toBar, toActive }) => {
@@ -70,8 +72,8 @@ class LanguagesBar extends Component {
 
     if (newFrom === to) {
       if (oldFrom !== this.props.toBar.to1 &&
-          oldFrom !== this.props.toBar.to2 &&
-          oldFrom !== this.props.toBar.to3) {
+        oldFrom !== this.props.toBar.to2 &&
+        oldFrom !== this.props.toBar.to3) {
 
         this.props.setToBar(oldFrom, 2)
 
@@ -125,8 +127,8 @@ class LanguagesBar extends Component {
 
     if (newTo === from) {
       if (oldTo !== this.props.fromBar.from1 &&
-          oldTo !== this.props.fromBar.from2 &&
-          oldTo !== this.props.fromBar.from3) {
+        oldTo !== this.props.fromBar.from2 &&
+        oldTo !== this.props.fromBar.from3) {
         this.props.setFromBar(oldTo, 2)
         this.props.setFromActive([false, false, true])
         this.props.setFromLang(oldTo)
@@ -330,7 +332,7 @@ class LanguagesBar extends Component {
                 className={this.state.visibleLeft ? 'rotateLeft' : ''}
                 onClick={this.showDropdownLeft}
                 viewBox="0 0 39.02 16.34"
-              ><path d="M19.51,16.34a2.49,2.49,0,0,1-1.39-.42L1.11,4.58A2.5,2.5,0,0,1,3.89.42L19.51,10.83,35.13,0.42A2.5,2.5,0,1,1,37.9,4.58l-17,11.34A2.49,2.49,0,0,1,19.51,16.34Z"/>
+              ><path d="M19.51,16.34a2.49,2.49,0,0,1-1.39-.42L1.11,4.58A2.5,2.5,0,0,1,3.89.42L19.51,10.83,35.13,0.42A2.5,2.5,0,1,1,37.9,4.58l-17,11.34A2.49,2.49,0,0,1,19.51,16.34Z" />
               </svg>
             </div>
 
@@ -382,9 +384,14 @@ class LanguagesBar extends Component {
               />
             </svg>
           </div>
-
           <div className='to'>
-
+            <div className="bookIcon"
+              onClick={()=>{console.log('change mode')}}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 296.999 296.999">
+                <path className="bookPath" d="M45.432 35.049h-.025c-2.809 0-5.451 1.095-7.446 3.085-2.017 2.012-3.128 4.691-3.128 7.543v159.365c0 5.844 4.773 10.61 10.641 10.625 24.738.059 66.184 5.215 94.776 35.136V84.023c0-1.981-.506-3.842-1.461-5.382-23.467-37.792-68.563-43.534-93.357-43.592zM262.167 205.042V45.676c0-2.852-1.111-5.531-3.128-7.543-1.995-1.99-4.639-3.085-7.445-3.085h-.026c-24.793.059-69.889 5.801-93.357 43.593-.955 1.54-1.46 3.401-1.46 5.382v166.779c28.592-29.921 70.038-35.077 94.776-35.136 5.867-.015 10.64-4.781 10.64-10.624z" />
+                <path className="bookPath" d="M286.373 71.801h-7.706v133.241c0 14.921-12.157 27.088-27.101 27.125-20.983.05-55.581 4.153-80.084 27.344 42.378-10.376 87.052-3.631 112.512 2.171 3.179.724 6.464-.024 9.011-2.054 2.538-2.025 3.994-5.052 3.994-8.301v-168.9c.001-5.859-4.767-10.626-10.626-10.626zM18.332 205.042V71.801h-7.706C4.768 71.801 0 76.568 0 82.427v168.897c0 3.25 1.456 6.276 3.994 8.301 2.545 2.029 5.827 2.78 9.011 2.054 25.46-5.803 70.135-12.547 112.511-2.171-24.502-23.19-59.1-27.292-80.083-27.342-14.943-.036-27.101-12.203-27.101-27.124z" />
+              </svg>
+            </div>
             <button
               name='to1'
               value={this.props.toBar.to1}
@@ -417,7 +424,7 @@ class LanguagesBar extends Component {
                 className={this.state.visibleRight ? 'rotateRight' : ''}
                 onClick={this.showDropdownRight}
                 viewBox="0 0 39.02 16.34"
-              ><path d="M19.51,16.34a2.49,2.49,0,0,1-1.39-.42L1.11,4.58A2.5,2.5,0,0,1,3.89.42L19.51,10.83,35.13,0.42A2.5,2.5,0,1,1,37.9,4.58l-17,11.34A2.49,2.49,0,0,1,19.51,16.34Z"/>
+              ><path d="M19.51,16.34a2.49,2.49,0,0,1-1.39-.42L1.11,4.58A2.5,2.5,0,0,1,3.89.42L19.51,10.83,35.13,0.42A2.5,2.5,0,1,1,37.9,4.58l-17,11.34A2.49,2.49,0,0,1,19.51,16.34Z" />
               </svg>
             </div>
 
@@ -475,7 +482,7 @@ class LanguagesBar extends Component {
   }
 }
 
-const Dropdown = ({lang1, lang2, lang3, active, setLang, side}) => {
+const Dropdown = ({ lang1, lang2, lang3, active, setLang, side }) => {
 
   var langs = side ? langsFrom : langsTo
 

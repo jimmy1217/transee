@@ -154,3 +154,18 @@ button {
   fill: #000;
   stroke-width: 3px;
 }
+
+.bookPath {
+  stroke: #555;
+  fill: #555;  
+}
+
+.bookIcon:hover .bookPath{
+  stroke: #ccc;
+  fill: #ccc;  
+}
+
+.bookIcon {
+  width: 19px;
+  margin:3px;
+}
